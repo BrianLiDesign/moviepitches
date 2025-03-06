@@ -1,14 +1,15 @@
 # sentiment_analysis.py
 # Author: Brian Li
+import data
 from textblob import TextBlob
 
-genres_very_happy = ["action", "adventure", "comedy", "family", "fantasy", "musical", "romance"]
-genres_happy = ["adventure", "game-show", "fantasy", "sport"]
-genres_neutral = ["biography", "documentary", "news", "talk-show", "western"]
-genres_negative = ["mystery", "crime", "film-noir", "thriller"]
-genres_very_negative = ["adult", "crime", "horror", "film-noir", "thriller", "war"]
 
-def sentiment_analysis(mood) -> str:
+# The function performs sentiment analysis on the given mood text and classifies it into one of five categories:
+# "very happy", "happy", "neutral", "negative", or "very negative".
+# mood (str) argument is a string representing a mood description or phrase.
+# The function returns a string indicating the sentiment of the input mood.
+
+def sentiment_analysis(mood: str) -> str:
     sentiment = TextBlob(mood).sentiment.polarity
     if sentiment > 0.5:
         return "very happy"
@@ -21,12 +22,16 @@ def sentiment_analysis(mood) -> str:
     else: # -0.5 > sentiment > -1.0
         return "very negative"
 
+
+# The function selects a list of movie genres based on the given mood category.
+# mood (str) argument is a string representing a mood description or phrase
+# The function returns a list of movie genres corresponding to the input mood, given from imported data.
 def set_genre(mood: str) -> list:
     if mood == "very happy":
-        return genres_very_happy
+        return data.genres_very_happy
     if mood == "happy":
-        return genres_happy
+        return data.genres_happy
     if mood == "neutral":
-        return genres_neutral
+        return data.genres_neutral
     if mood == "negative":
-        return genres_negative
+        return data.genres_negative

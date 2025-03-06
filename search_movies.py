@@ -1,3 +1,6 @@
+# search_movies.py
+# Author: Natalie Cartwright
+
 import imdb
 ia = imdb.IMDb()
 

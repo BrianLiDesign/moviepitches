@@ -36,6 +36,6 @@ def search_by_title(title: str) -> list[str]:
     #    movies.append(person)
 
 #Works
-#print(search_by_title("Avengers"))
+print(search_by_title("Avengers"))
 
-print(search_by_genre("dystopian"))
+#print(search_by_genre("dystopian"))

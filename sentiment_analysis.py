@@ -14,3 +14,5 @@ def sentiment_analysis(mood):
         return "negative"
     else: # -0.5 > sentiment > -1.0
         return "very negative"
+
+print(sentiment_analysis("happy"))

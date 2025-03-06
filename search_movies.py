@@ -3,7 +3,7 @@ ia = imdb.IMDb()
 
 
 #This searches the database of movies for a movie in the specified genre
-#genre is a string that is inputted by the user that they want to search for
+#Genre is a string that is inputted by the user that they want to search for
 #the function returns a list of movies that are in the given genre
 def search_by_genre(genre: str) -> list[str]:
     #List of movie recommendations

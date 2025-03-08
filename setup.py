@@ -37,6 +37,10 @@ class UserInput:
         self.user_max_length = int(input("Enter maximum movie length (or 999 to skip): "))
         self.user_min_rating = float(input("Enter minimum rating (or 0 to skip): "))
 
+    #def set_user_mood(self):
+     #   self.user_mood = input("Describe your mood: ")
+      #  if self.user_mood.lower():
+
 
     # Generates and displays a list of recommended movies based on the user's preferences.
     # Inputs: relies on previously set user preferences
@@ -59,7 +63,7 @@ class UserInput:
     # Runs the main menu loop, allowing the user to set preferences, get movie recommendations, or exit.
     def run(self):
         print("\nMovie Pitcher")
-        print("1. Set User Preferences")
+        print("1. Determine your mood")
         print("2. Get a list of movies")
         print("3. Exit")
         choice = input("Enter your choice: ")

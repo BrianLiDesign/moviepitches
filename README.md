@@ -9,7 +9,7 @@ The driver file to run the program.
 
 ## search_movies.py
 
-Given keywords, search movies that have similar attributes, such as `director`, `genre`, and `length`.
+Given keywords, search movies that have similar attributes, such as `rating`, `genre`, and `length`.
 
 ## setup.py
 
@@ -18,6 +18,7 @@ User interface and interaction.
 ## data.py
 
 List of genres, such as **action**, **biography**, and **mystery**.
+Dictionary containing movies and their respective elements like **title**, **rating**, and **length**
 
 ## main_tests.py
 
@@ -25,7 +26,7 @@ Unit tests for each function (that returns a value) in each file
 
 ## Dictionaries present
 
-N/A
+We have a dictionary for the movies called movie_database
 
 ## Lists present
 
@@ -41,4 +42,4 @@ N/A
     <li>Movie recommendations</li>
 </ol>
 
-#### Author: Brian Li
+#### Author: Brian Li and Natalie Cartwright

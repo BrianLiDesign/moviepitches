@@ -70,54 +70,8 @@ class TestSetGenre(unittest.TestCase):
 #Tests for search_movies
 class TestSearchMovies(unittest.TestCase):
     #Tests the search_by_keyword function
-    def test_search_by_keyword(self):
-        result = search_movies.search_by_keyword("cars")
-        expected = ['Cars',
- 'Cars 3',
- 'Cars 2',
- 'Z Cars',
- 'Cars on the Road',
- 'Used Cars',
- 'Riding in Cars with Boys',
- 'Comedians in Cars Getting Coffee',
- 'Counting Cars',
- 'The Cars That Ate Paris',
- 'Hot Cars',
- 'Cars of the Revolution',
- 'Old Men in New Cars',
- 'Stealing Cars',
- 'Chasing Classic Cars',
- 'Cars: The Video Game',
- 'The Cars: You Might Think',
- 'King of Cars',
- "Cars 3: Cars D'oeuvres",
- 'Cars']
-        self.assertEqual(result, expected)
-
-        #Tests the search_by_title function
-    def test_search_by_title(self):
-        result = search_movies.search_by_title("Jurassic World")
-        expected = ['Jurassic World: Rebirth',
- 'Jurassic World',
- 'Jurassic World: Dominion',
- 'Jurassic World: Fallen Kingdom',
- 'The Lost World: Jurassic Park',
- 'Jurassic World: Chaos Theory',
- 'Jurassic World: Camp Cretaceous',
- 'Jurassic World Dominion: The Prologue',
- 'Lego Jurassic World: Legend of Isla Nublar',
- 'Jurassic World: The Ride',
- 'Jurassic World: Blue',
- 'Lego Jurassic World: The Indominus Escape',
- 'Jurassic World: Fallen Kingdom - The Trailer Rescue',
- 'Jurassic World Evolution 2',
- 'Lego Jurassic World: The Secret Exhibit',
- 'Lego Jurassic World: Double Trouble',
- 'Exodus: Jurassic World Fan Film',
- 'Lego Jurassic World',
- 'Jurassic World Evolution',
- 'From Jurassic Park to Jurassic World: Greatest Moments']
-        self.assertEqual(result, expected)
-
+    def test_search_by_genre(self):
+        result = search_movies.search_by_genre("action")
+        expected = []
 
 

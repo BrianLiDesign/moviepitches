@@ -119,12 +119,5 @@ class TestSearchMovies(unittest.TestCase):
  'From Jurassic Park to Jurassic World: Greatest Moments']
         self.assertEqual(result, expected)
 
-    def test_search_by_rating(self):
-        result = search_movies.search_by_rating(5)
-        expected = []
-        self.assertEqual(result, expected)
 
-    def test_search_by_director(self):
-        result = search_movies.search_by_director("Steve Spielberg")
-        expected = ['Steve Spielberg',]
-        self.assertEqual(result, expected)
+

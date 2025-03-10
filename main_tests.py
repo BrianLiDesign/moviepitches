@@ -103,7 +103,7 @@ class TestSearchMovies(unittest.TestCase):
 
     def test_search_by_genre2(self):
         result = search_movies.search_by_genre("python")
-        expected = []
+        expected = "\nNo movies found that match your criteria."
         self.assertEqual(result, expected)
 
     def test_search_by_title(self):
@@ -115,7 +115,7 @@ class TestSearchMovies(unittest.TestCase):
         self.assertEqual(result, expected)
     def test_search_by_title2(self):
         result = search_movies.search_by_title("Harry Potter")
-        expected = []
+        expected = "\nNo movies found that match your criteria."
         self.assertEqual(result, expected)
 
     def test_search_by_rating(self):
@@ -139,7 +139,7 @@ class TestSearchMovies(unittest.TestCase):
 
     def test_search_by_rating2(self):
         result = search_movies.search_by_rating(10)
-        expected = []
+        expected = "\nNo movies found that match your criteria."
         self.assertEqual(result, expected)
 
     def test_search_by_length(self):
@@ -161,7 +161,7 @@ class TestSearchMovies(unittest.TestCase):
 
     def test_by_length2(self):
         result = search_movies.search_by_length(500)
-        expected = []
+        expected = "\nNo movies found that match your criteria."
         self.assertEqual(result, expected)
 
 

@@ -73,5 +73,21 @@ class TestSearchMovies(unittest.TestCase):
     def test_search_by_genre(self):
         result = search_movies.search_by_genre("action")
         expected = []
+        self.assertEqual(result, expected)
+
+    def test_search_by_title(self):
+        result = search_movies.search_by_title("Harry Potter")
+        expected = []
+        self.assertEqual(result, expected)
+
+    def test_search_by_rating(self):
+        result = search_movies.search_by_rating(5)
+        expected = []
+        self.assertEqual(result, expected)
+
+    def test_search_by_length(self):
+        result = search_movies.search_by_length(140)
+        expected = []
+        self.assertEqual(result, expected)
 
 

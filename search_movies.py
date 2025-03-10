@@ -43,33 +43,8 @@ def search_by_length(length: int):
     return [movie['title'] for movie in movies if movie.get('runtimes') and int(movie['runtimes'][0]) == length]
 
 
-# This search the database for movies with a specified director
-# director is string that is inputted by the user that they want to search for
-# This function returns a list of movies containing the inputted director
-def search_by_director(director: str) -> str:
-    info = ia.get_person_infoset()
-    for element in info:
-        print(element)
 
 
-# A function that searches for movies based on if they contain the specified person or not
-# Person is an inputted string that the users wants to search for
-# The function returns a list of movies containing the specified person
-def search_by_person(person: str) -> list[str]:
-    people = ia.search_person(person)
-    if not people:
-        return []
 
-    person_id = people[0].personID
-    person_info = ia.get_person(person_id)
 
-    if 'filmography' in person_info.data:
-        filmography = person_info['filmography']
-        movies = []
-        for category in filmography:
-            for movie in filmography[category]:
-                movies.append(movie['title'])
-            return movies
-    else:
-        return []
 

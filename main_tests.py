@@ -63,6 +63,7 @@ class TestSetGenre(unittest.TestCase):
     def test_set_genre_very_negative(self):
         result = sentiment_analysis.set_genre("very negative")
         expected = ["adult", "crime", "horror", "film-noir", "thriller", "war"]
+        self.assertEqual(result, expected)
 
 
 #Tests for search_movies

@@ -11,7 +11,7 @@ def search_by_genre(genre: str, movie_database) -> list[str]:
     #List of movie recommendations
     movies = []
     for movie in movie_database:
-        if movie.genre.lower() == genre.lower():
+        if genre.lower() in movie['genres'].lower():
             movies.append(movie)
     return movies
 
@@ -22,26 +22,33 @@ def search_by_genre(genre: str, movie_database) -> list[str]:
 def search_by_title(title: str, movie_database) -> list[str]:
     movies = []
     for movie in movie_database:
-        if movie.title.lower() == title.lower():
+        if title.lower() in movie['title'].lower():
             movies.append(movie)
     return movies
 
-
-def search_by_rating(number: int, movie_database) -> list[str]:
+#A function that searches through movies based on their rating
+#number is the rating that the user wants to search by
+#This function returns a list of movies of the specified rating
+def search_by_rating(rating: int, movie_database) -> list[str]:
     movies = []
     for movie in movie_database:
-        if movie.rating >= number:
+        if movie['rating'] >= rating:
             movies.append(movie)
     return movies
 
+#A function that searches through movies based on their length
+#length is an integer that the user wants to search by
+#The function returns a list of movies of the specified length
 def search_by_length(length: int, movie_database) -> list[str]:
     movies = []
     for movie in movie_database:
-        if movie.length >= length and movie.lenght <= 999:
+        if length <= movie['length'] <= 999:
             movies.append(movie)
     return movies
 
-
+#A function that gets user input for how they want to search and then does that search
+#user_input is an integer that indicates the users choice
+#This function returns a list of movies based on the search the user did
 def search(user_input: int) -> list[str]:
     user_input = input("How would you like to search: 1: By genre, 2: By tile, 3: By rating, 4: By length: ")
     if user_input == "1":

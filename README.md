@@ -19,6 +19,10 @@ User interface and interaction.
 
 List of genres, such as **action**, **biography**, and **mystery**.
 
+## main_tests.py
+
+Unit tests for each function (that returns a value) in each file
+
 ## Dictionaries present
 
 N/A

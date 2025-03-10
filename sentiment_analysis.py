@@ -25,7 +25,7 @@ def sentiment_analysis(mood: str) -> str:
 # The function selects a list of movie genres based on the given mood category.
 # mood (str) argument is a string representing a mood description or phrase
 # The function returns a list of movie genres corresponding to the input mood, given from imported data.
-def set_genre(mood: str) -> list:
+def set_genre(mood: str) -> list[str]:
     if mood == "very positive":
         return data.genres_very_positive
     if mood == "positive":

@@ -14,25 +14,29 @@ def main():
         print("3. Search by Genre")
         print("4. Search by Rating")
         print("5. Search by Length")
-        print("6. Exit")
+        print("6. Current Preferences")
+        print("0. Exit")
 
         choice = input("Enter your choice: ")
 
         if choice == "1":
+            user.set_user_mood()
             user.execute_recommendation()
-        if choice == "2":
-            user.set_user_preferences()
-        if choice == "3":
-            print(repr(user))
-        if choice == "4":
-            genre = input("Enter Genre: ")
-            movies_by_genre = search_movies.search_by_genre(genre)
-            print("\nMovies in Genre:")
-            for movie in movies_by_genre:
-                print(f"- {movie["title"]}")
-        if choice == "10":
+        elif choice == "2":
+            user.search_by_title()
+        elif choice == "3":
+            user.search_by_genre()
+        elif choice == "4":
+            user.search_by_rating()
+        elif choice == "5":
+            user.search_by_length()
+        elif choice == "6":
+            print(f"\nCurrent Mood: {user.get_current_mood()}")
+        elif choice == "0":
             print("Exiting program.")
             user.running = False
+        else:
+            print("Invalid choice. Please select a valid option.")
 
 
 if __name__ == "__main__":

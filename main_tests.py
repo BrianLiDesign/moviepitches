@@ -1,10 +1,8 @@
 # main_tests.py
 import unittest
-
+import setup
 import search_movies
 import sentiment_analysis
-# import search_movies
-
 
 # Sentiment Analysis
 # Author: Brian Li
@@ -104,7 +102,7 @@ class TestSearchMovies(unittest.TestCase):
 
     def test_search_by_genre2(self):
         result = search_movies.search_by_genre("python")
-        expected = "\nNo movies found with that genre."
+        expected = []
         self.assertEqual(result, expected)
 
     def test_search_by_title(self):
@@ -116,7 +114,7 @@ class TestSearchMovies(unittest.TestCase):
         self.assertEqual(result, expected)
     def test_search_by_title2(self):
         result = search_movies.search_by_title("Harry Potter")
-        expected = "\nNo movies found with that title."
+        expected = []
         self.assertEqual(result, expected)
 
     def test_search_by_rating(self):
@@ -140,7 +138,7 @@ class TestSearchMovies(unittest.TestCase):
 
     def test_search_by_rating2(self):
         result = search_movies.search_by_rating(10)
-        expected = "\nNo movies found with that rating."
+        expected = []
         self.assertEqual(result, expected)
 
     def test_search_by_length(self):
@@ -162,7 +160,36 @@ class TestSearchMovies(unittest.TestCase):
 
     def test_by_length2(self):
         result = search_movies.search_by_length(500)
-        expected = "\nNo movies found with that length."
+        expected = []
         self.assertEqual(result, expected)
 
 
+# Test setup.py validation functions
+# Author: Brian Li
+class TestInputValidation(unittest.TestCase):
+
+    def test_validate_mood(self):
+        self.assertTrue(setup.validate_mood("happy"))
+    def test_validate_mood_empty(self):
+        self.assertTrue(setup.validate_mood(""))
+    def test_validate_mood_nums(self):
+        self.assertFalse(setup.validate_mood("happy123"))
+    def test_validate_mood_chars(self):
+        self.assertFalse(setup.validate_mood("!happy"))
+    def test_validate_mood_chars_2(self):
+        self.assertFalse(setup.validate_mood("happy!"))
+
+    def test_validate_number(self):
+        self.assertTrue(setup.validate_number("150", 1, 180))
+    def test_validate_number_min_bound(self):
+        self.assertTrue(setup.validate_number("1", 1, 180))
+    def test_validate_number_max_bound(self):
+        self.assertTrue(setup.validate_number("180", 1, 180))
+    def test_validate_number_below_min(self):
+        self.assertFalse(setup.validate_number("0", 1, 180))
+    def test_validate_number_above(self):
+        self.assertFalse(setup.validate_number("200", 1, 180))
+    def test_validate_number_string(self):
+        self.assertFalse(setup.validate_number("abc", 1, 180))
+    def test_validate_negative(self):
+        self.assertFalse(setup.validate_number("-10", 1, 180))

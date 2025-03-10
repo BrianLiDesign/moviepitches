@@ -68,6 +68,7 @@ class TestSetGenre(unittest.TestCase):
 
 
 #Tests for search_movies
+#Author: Natalie Cartwright
 class TestSearchMovies(unittest.TestCase):
     #Tests the search_by_keyword function
     def test_search_by_genre(self):

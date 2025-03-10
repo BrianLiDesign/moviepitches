@@ -1,7 +1,6 @@
 # main.py
 # Author: Brian Li
 from setup import UserInput
-import search_movies
 
 
 # Runs the main menu loop, allowing the user to set preferences, get movie recommendations, or exit.

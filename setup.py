@@ -11,12 +11,6 @@ from sentiment_analysis import sentiment_analysis, set_genre
 def validate_mood(mood):
     return mood.isalpha() or mood == ""
 
-# The function handles number validation for user input of movie duration
-# Input: A string representing a number, and two integers (min_value and max_value) defining the valid range.
-# Output: Returns True if the number is a digit and falls within the specified range, otherwise False.
-def validate_number(num, min_value, max_value):
-    return num.isdigit() and min_value <= int(num) <= max_value
-
 # A class that handles user input for movie recommendations based on preferences.
 class UserInput:
     # Initializes the UserInput object with default preferences.
@@ -44,12 +38,6 @@ class UserInput:
             self.user_mood = mood
         else:
             print("Invalid mood input. Please use only alphabetic characters.")
-
-    def get_current_mood(self):
-        if self.user_mood:
-            return self.user_mood
-        else:
-            return "No mood set yet."
 
     # Generates and displays a list of recommended movies based on the user's preferences.
     # Inputs: relies on previously set user preferences
@@ -100,28 +88,38 @@ class UserInput:
 
     # Searches movies by rating and displays the results.
     def search_by_rating(self):
-        rating = input("Enter the minimum rating (1-10): ").strip()
-        if validate_number(rating, 1, 10):
-            movies_by_rating = search_movies.search_by_rating(int(rating), data.movie_database)
-            if movies_by_rating:
-                print("\nMovies with Rating:")
-                for movie in movies_by_rating:
-                    print(f"- {movie["title"]} (Genre: {movie["genre"]}, Rating: {movie["rating"]}, Length: {movie["length"]} mins)")
-            else:
-                print("\nNo movies found with that rating.")
+        while True:
+            self.user_min_rating = input("Enter a minimum rating between 0 - 10: ").strip()
+            if not self.user_min_rating.isdigit():
+                print("Please enter a number for rating.")
+                continue
+            elif int(self.user_min_rating) < 0 or int(self.user_min_rating) > 10:
+                print("Please enter a number between 0 - 10")
+                continue
+            break
+        movies_by_rating = search_movies.search_by_rating(int(self.user_min_rating))
+        if movies_by_rating:
+            print("\nMovies with Rating:")
+            for movie in movies_by_rating:
+                print(f"- {movie["title"]} (Genre: {movie["genre"]}, Rating: {movie["rating"]}, Length: {movie["length"]} mins)")
         else:
-            print("Invalid rating. Please enter a number between 1 and 10.")
+            print("\nNo movies found with that rating.")
 
     # Searches movies by length and displays the results.
     def search_by_length(self):
-        length = input("Enter the maximum length in minutes: ").strip()
-        if validate_number(length, 1, 999):
-            movies_by_length = search_movies.search_by_length(int(length))
-            if movies_by_length:
-                print("\nMovies with Length:")
-                for movie in movies_by_length:
-                    print(f"- {movie["title"]} (Genre: {movie["genre"]}, Rating: {movie["rating"]}, Length: {movie["length"]} mins)")
-            else:
-                print("\nNo movies found within that length.")
+        while True:
+            self.user_min_length = input("Enter minimum movie length between in minutes 1 - 999: ")
+            if not self.user_min_length.isdigit():
+                print("Please enter a number for movie length.")
+                continue
+            if not int(self.user_min_length) > 0 or not int(self.user_min_length) <= 999:
+                print("Please enter a valid length between 1 and 999.")
+                continue
+            break
+        movies_by_length = search_movies.search_by_length(int(self.user_min_length))
+        if movies_by_length:
+            print("\nMovies with Length:")
+            for movie in movies_by_length:
+                print(f"- {movie["title"]} (Genre: {movie["genre"]}, Rating: {movie["rating"]}, Length: {movie["length"]} mins)")
         else:
-            print("Invalid length. Please enter a positive number.")
+            print("\nNo movies found within that length.")

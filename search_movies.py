@@ -24,25 +24,8 @@ def search_by_title(title: str) -> list[str]:
     movie_titles = [str(movie) for movie in movies]
     return movie_titles
 
-#A function that searches for movies based on their ratings
-#rating is an integer given by the user that they want to search for
-#The function returns a list of movies that all have the specified rating given by the user
-def search_by_rating(min_rating: int) -> list[str]:
-    top_movies = ia.get_top250_movies()
-    for movie in top_movies[:3]:
-        print(movie)
 
-print(search_by_rating(5))
-
-
-#A function that searches for movies depending on a specified length
-#Length is an integer given by the user that they are searching for
-#The function returns a list of movies all of that specified length
-def search_by_length(length: int):
-    movies = ia.get_top250_movies()
-    return [movie['title'] for movie in movies if movie.get('runtimes') and int(movie['runtimes'][0]) == length]
-
-
+def search_by_rating(number: int) -> list[str]:
 
 
 

@@ -71,6 +71,7 @@ class TestSetGenre(unittest.TestCase):
 #Author: Natalie Cartwright
 class TestSearchMovies(unittest.TestCase):
     #Tests the search_by_keyword function
+
     def test_search_by_genre(self):
         result = search_movies.search_by_genre("action")
         expected = [{'genre': 'action', 'length': 152, 'rating': 9.0, 'title': 'The Dark Knight'},
@@ -101,12 +102,21 @@ class TestSearchMovies(unittest.TestCase):
  {'genre': 'action', 'length': 78, 'rating': 8.4, 'title': 'The General'}]
         self.assertEqual(result, expected)
 
+    def test_search_by_genre2(self):
+        result = search_movies.search_by_genre("python")
+        expected = "\nNo movies found with that genre."
+        self.assertEqual(result, expected)
+
     def test_search_by_title(self):
         result = search_movies.search_by_title("Star Wars")
         expected = [{'genre': 'action',
   'length': 124,
   'rating': 8.7,
   'title': 'Star Wars: Episode V - The Empire Strikes Back'}]
+        self.assertEqual(result, expected)
+    def test_search_by_title2(self):
+        result = search_movies.search_by_title("Harry Potter")
+        expected = "\nNo movies found with that title."
         self.assertEqual(result, expected)
 
     def test_search_by_rating(self):
@@ -128,6 +138,11 @@ class TestSearchMovies(unittest.TestCase):
   'title': "Schindler's List"}]
         self.assertEqual(result, expected)
 
+    def test_search_by_rating2(self):
+        result = search_movies.search_by_rating(10)
+        expected = "\nNo movies found with that rating."
+        self.assertEqual(result, expected)
+
     def test_search_by_length(self):
         result = search_movies.search_by_length(200)
         expected = [{'genre': 'crime',
@@ -143,6 +158,11 @@ class TestSearchMovies(unittest.TestCase):
   'length': 238,
   'rating': 8.4,
   'title': 'Gone with the Wind'}]
+        self.assertEqual(result, expected)
+
+    def test_by_length2(self):
+        result = search_movies.search_by_length(500)
+        expected = "\nNo movies found with that length."
         self.assertEqual(result, expected)
 
 

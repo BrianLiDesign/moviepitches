@@ -8,7 +8,6 @@ from textblob import TextBlob
 # "very happy", "happy", "neutral", "negative", or "very negative".
 # mood (str) argument is a string representing a mood description or phrase.
 # The function returns a string indicating the sentiment of the input mood.
-
 def sentiment_analysis(mood: str) -> str:
     sentiment = TextBlob(mood).sentiment.polarity
     if sentiment > 0.5:

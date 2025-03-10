@@ -31,7 +31,10 @@ def main():
         elif choice == "5":
             user.search_by_length()
         elif choice == "6":
-            print(f"\nCurrent Mood: {user.get_current_mood()}")
+            print(
+                f"Current Preferences\n"
+                f"Current Mood: {user.get_current_mood()}"
+            )
         elif choice == "0":
             print("Exiting program.")
             user.running = False

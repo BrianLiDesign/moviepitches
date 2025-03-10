@@ -24,7 +24,7 @@ class UserInput:
     def __str__(self):
         return (f"User Preferences:\n"
             f"- Mood: {self.user_mood}"
-                )
+        )
 
     def __repr__(self):
         """Returns a formatted string representation of the user's preferences."""

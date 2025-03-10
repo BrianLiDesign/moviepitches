@@ -5,11 +5,15 @@ import search_movies
 from sentiment_analysis import sentiment_analysis, set_genre
 
 
-# Handles mood validation for user input of mood
+# The function handles mood validation for user input of mood
+# Input: A string representing the user's mood.
+# Output: Returns True if the mood contains only alphabetic characters or is an empty string, otherwise False.
 def validate_mood(mood):
     return mood.isalpha() or mood == ""
 
-# Handles number validation for user input of movie duration
+# The function handles number validation for user input of movie duration
+# Input: A string representing a number, and two integers (min_value and max_value) defining the valid range.
+# Output: Returns True if the number is a digit and falls within the specified range, otherwise False.
 def validate_number(num, min_value, max_value):
     return num.isdigit() and min_value <= int(num) <= max_value
 
@@ -26,8 +30,8 @@ class UserInput:
             f"- Mood: {self.user_mood}"
         )
 
+    # Returns a formatted string representation of the user's preferences.
     def __repr__(self):
-        """Returns a formatted string representation of the user's preferences."""
         return (
             f"\nCurrent Preferences:\n"
             f"  Mood: {self.user_mood}"

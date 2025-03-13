@@ -14,6 +14,7 @@ def search_by_genre(genre: str) -> list[str] | None:
             return None
         elif genre.lower() in movie['genre'].lower():
             movies.append(movie)
+
     return movies
 
 #A function that search through the IMDB database for movies with the given title
@@ -26,6 +27,7 @@ def search_by_title(title: str) -> list[str]| None:
             return None
         elif title.lower() in movie['title'].lower():
             movies.append(movie)
+
     return movies
 
 # A function that searches through movies based on their rating
@@ -50,6 +52,7 @@ def search_by_length(length: int) -> list[str] | None:
             return None
         elif length <= movie['length'] <= 999:
             movies.append(movie)
+
     return movies
 
 

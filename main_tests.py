@@ -63,6 +63,7 @@ class TestSetGenre(unittest.TestCase):
     def test_set_genre_very_negative(self):
         result = sentiment_analysis.set_genre("very negative")
         expected = ["adult", "crime", "horror", "film-noir", "thriller", "war"]
+        self.assertEqual(result, expected)
 
 
 #Tests for search_movies
@@ -112,6 +113,7 @@ class TestSearchMovies(unittest.TestCase):
   'rating': 8.7,
   'title': 'Star Wars: Episode V - The Empire Strikes Back'}]
         self.assertEqual(result, expected)
+
     def test_search_by_title2(self):
         result = search_movies.search_by_title("Harry Potter")
         expected = []

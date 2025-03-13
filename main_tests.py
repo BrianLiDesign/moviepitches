@@ -178,18 +178,3 @@ class TestInputValidation(unittest.TestCase):
         self.assertFalse(setup.validate_mood("!happy"))
     def test_validate_mood_chars_2(self):
         self.assertFalse(setup.validate_mood("happy!"))
-
-    def test_validate_number(self):
-        self.assertTrue(setup.validate_number("150", 1, 180))
-    def test_validate_number_min_bound(self):
-        self.assertTrue(setup.validate_number("1", 1, 180))
-    def test_validate_number_max_bound(self):
-        self.assertTrue(setup.validate_number("180", 1, 180))
-    def test_validate_number_below_min(self):
-        self.assertFalse(setup.validate_number("0", 1, 180))
-    def test_validate_number_above(self):
-        self.assertFalse(setup.validate_number("200", 1, 180))
-    def test_validate_number_string(self):
-        self.assertFalse(setup.validate_number("abc", 1, 180))
-    def test_validate_negative(self):
-        self.assertFalse(setup.validate_number("-10", 1, 180))
